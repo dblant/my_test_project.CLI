@@ -1,6 +1,10 @@
 require "my_test_project/version"
+require 'pry'
+require 'httparty'
+
+require_relative './ApiManager'
 
 module MyTestProject
-  class Error < StandardError; end
+  
   # Your code goes here...
 end
