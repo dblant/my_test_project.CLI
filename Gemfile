@@ -7,4 +7,4 @@ gem "rake", "~> 12.0"
 
 gem "httparty", "~> 0.18.1"
 
-
+gem 'pry'
