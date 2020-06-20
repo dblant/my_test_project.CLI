@@ -2,4 +2,4 @@
 require_relative '../lib/my_test_project/scraper'
 
 
-Scraper.get_page_headlines(nfl)
+Scraper.new.get_page_headlines('nfl')
