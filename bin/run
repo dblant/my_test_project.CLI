@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../lib/my_test_project/scraper'
+
+
+Scraper.get_page_headlines(nfl)
