@@ -25,7 +25,7 @@ def get_page_headlines(sport)
                 # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
                 parsed_story_url.css
                     binding.pry
-                end
+                
 
     end
 
