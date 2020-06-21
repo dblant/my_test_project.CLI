@@ -23,7 +23,10 @@ def get_page_headlines(sport)
                 unparsed_story_url = HTTParty.get(story_url)
                 parsed_story_url = Nokogiri::HTML(unparsed_story_url)
                 # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
-            binding.pry
+                parsed_story_url.css
+                    binding.pry
+                end
+
     end
 
 
