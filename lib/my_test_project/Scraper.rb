@@ -10,6 +10,7 @@ require 'pry'
 class Scraper
 BASE_URL = 'https://www.espn.com/'
 
+attr_reader: :article_title
 
 def get_page_headlines(sport)
     url = BASE_URL + "#{sport}"
@@ -23,7 +24,8 @@ def get_page_headlines(sport)
                 unparsed_story_url = HTTParty.get(story_url)
                 parsed_story_url = Nokogiri::HTML(unparsed_story_url)
                 # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
-                parsed_story_url.css
+              @article_title =  parsed_story_url.css('header.article-header h1').text
+                # ^^ This retrieves the title of the article
                     binding.pry
                 
 
