@@ -29,8 +29,10 @@ def get_page_headlines(sport)
                 counter = 1
                 while counter <1 
                 
-                parsed_story_url.css('div.article-body p').text.split('.').uniq
+                parsed_story_url.css('div.article-body p').text.split('.').uniq 
                 counter += 1
+                # parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
+                # ^^ This commented code takes the text and formats it closer to readable format.
                 end
                     binding.pry
                 
