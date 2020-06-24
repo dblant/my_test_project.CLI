@@ -19,22 +19,19 @@ def get_page_headlines(sport)
     parsed_page = Nokogiri::HTML(unparsed_url)
 
     parsed_page.css('div.headlineStack').each do |headlines|
-    #    counter = 0
-    #    while counter < 6
-        page_id = headlines.css('section ul li a')[0].attributes["href"].text.split("/")[5] 
-        
-        
-        headline_list = headlines.css('section ul.headlineStack__list').each do |headline_item|
-            headline_item
-            binding.pry
-
-        end
-
-    
-
-        
+    #   
     #    Ruby Take
+        page_id = headlines.css('section ul li a')[0].attributes["href"].text.split("/")[5] 
         # ^^ This gets the id for the page for the article.  We can use this to get the text from the h1 so that we can use the text for our title.
+        
+        
+                headline_list =[]
+                 headlines.css('section ul.headlineStack__list').each do |headline_item|
+                    headline_item
+                    
+                    binding.pry
+                end
+                
         story_url = url + "/story/_/id/" + page_id
         unparsed_story_url = HTTParty.get(story_url)
         parsed_story_url = Nokogiri::HTML(unparsed_story_url)
@@ -43,40 +40,19 @@ def get_page_headlines(sport)
         # ^^ This retrieves the title of the article
         counter = 1
         while counter < 1 
-        
-        parsed_story_url.css('div.article-body p').text.split('.').uniq 
-        counter += 1
-        # parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-        # ^^ This commented code takes the text and formats it closer to readable format.
+            
+            # parsed_story_url.css('div.article-body p').text.split('.').uniq 
+            parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
+            # ^^ This  code takes the text and formats it closer to readable format.
+            counter += 1
         end
-        
-        # @@headline_array << @article_title
-        # counter += 1
-    # end
-    
+        # binding.pry
         end
-
-# puts @@headline_array.uniq
     end
-
-    
-
-
-        
-        # This method should return the list of headlines from each sport page.
 end
         
         
         
         
-    # counter = 1
-    # while counter <1 
     
-    # parsed_story_url.css('div.article-body p').text.split('.').uniq 
-    # counter += 1
-    # parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-    # ^^ This commented code takes the text and formats it closer to readable format.
-    # end
-    # ^^Retrieves the body of the article
-        # binding.pry
     
