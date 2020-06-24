@@ -9,6 +9,21 @@ require 'open-uri'
 HEADLINE = Scraper.get_page_headlines
 
 class Articles
-    # get text from articles
 
+
+    
 end
+
+# # get text from articles
+# @article_title =  parsed_story_url.css('header.article-header h1').text
+# # ^^ This retrieves the title of the article
+# counter = 1
+# while counter <1 
+
+# parsed_story_url.css('div.article-body p').text.split('.').uniq 
+# counter += 1
+# # parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
+# # ^^ This commented code takes the text and formats it closer to readable format.
+# end
+# # ^^Retrieves the body of the article
+#     # binding.pry
