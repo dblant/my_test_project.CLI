@@ -22,7 +22,15 @@ def get_page_headlines(sport)
     #    counter = 0
     #    while counter < 6
         page_id = headlines.css('section ul li a')[0].attributes["href"].text.split("/")[5] 
+        
+        
+        headline_list = headlines.css('section ul.headlineStack__list').each do |headline_item|
+            headline_item
+            binding.pry
 
+        end
+
+    
 
         
     #    Ruby Take
@@ -33,7 +41,7 @@ def get_page_headlines(sport)
         # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
         @article_title =  parsed_story_url.css('header.article-header h1').text
         # ^^ This retrieves the title of the article
-        counter = 0
+        counter = 1
         while counter < 1 
         
         parsed_story_url.css('div.article-body p').text.split('.').uniq 
@@ -45,7 +53,6 @@ def get_page_headlines(sport)
         # @@headline_array << @article_title
         # counter += 1
     # end
-    binding.pry
     
         end
 
