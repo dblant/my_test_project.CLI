@@ -10,7 +10,9 @@ require 'open-uri'
 class Articles
     HEADLINE = Scraper.get_page_headlines
     
-    def initialize()
+    def initialize(url)
+        url = 
+
         counter = 0
         while counter < 1 
             
