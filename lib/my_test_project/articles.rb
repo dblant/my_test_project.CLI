@@ -6,12 +6,22 @@ require 'open-uri'
 
 
 # We need to take from Scraper and be able to collect the data
-HEADLINE = Scraper.get_page_headlines
 
 class Articles
-
-
+    HEADLINE = Scraper.get_page_headlines
     
+    def initialize
+        counter = 0
+        while counter < 1 
+            
+            # parsed_story_url.css('div.article-body p').text.split('.').uniq 
+            parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
+            # ^^ This  code takes the text and formats it closer to readable format.
+            counter += 1
+        end
+    end
+    
+
 end
 
 # # get text from articles
