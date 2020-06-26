@@ -8,10 +8,15 @@ require 'open-uri'
 # We need to take from Scraper and be able to collect the data
 
 class Articles
+
+    
     HEADLINE = Scraper.get_page_headlines
     
-    def initialize(url)
-        url = 
+    def initialize(sport)
+    
+    
+    end
+        
 
         counter = 0
         while counter < 1 
@@ -23,6 +28,10 @@ class Articles
         end
     end
     
+    def titles
+
+    
+    end
 
 end
 

@@ -14,6 +14,8 @@ attr_accessor :url, :unparsed_url, :parsed_page
 # attr_reader  :article_title
 @@headline_array = []
 
+
+
 def get_page_headlines(sport)
     @url = BASE_URL + "#{sport}"
     @unparsed_url = HTTParty.get(url)
@@ -21,11 +23,14 @@ def get_page_headlines(sport)
 
     headline_list = []
     counter = 0
-    while counter < 6
+    while counter < 3
     # parsed_page.css('div.headlineStack section ul').collect do |headlines|
-    parsed_page.css('div.headlineStack section ul').collect do |headlines|
+    parsed_page.css('div.headlineStack section ul').each_with_index do |headlines, index|
     #    Ruby Take
-        page_id = headlines.css('li')[0].attributes['data-story-id'].value
+        page_id = headlines.css('li')[index].attributes['data-story-id'].value
+        # .each_with_index {|array, index|  array[index].attributes['data-story-id'].value}
+        
+        # .attributes['data-story-id'].value
         # ^^ This gets the id for the page for the article.  We can use this to get the text from the h1 so that we can use the text for our title.
         
         story_url = @url + "/story/_/id/" + page_id
@@ -37,11 +42,11 @@ def get_page_headlines(sport)
         # ^^ This retrieves the title of the article
         headline_list << article_title
         counter += 1
+        # binding.pry
     end
 end
-# binding.pry
 puts headline_list.uniq
-binding.pry
+
 end
 end
 
