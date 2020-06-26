@@ -9,13 +9,18 @@ require 'open-uri'
 
 class Articles
 
+    attr_accessor :sport, :number
+
+
+    HEADLINES = Scraper.get_page_headlines
     
-    HEADLINE = Scraper.get_page_headlines
-    
-    def initialize(sport)
-    
-    
+    def initialize(sport, number)
+        @sport = sport
+        @number = number
+
     end
+
+
         
 
         counter = 0
