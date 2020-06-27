@@ -10,7 +10,7 @@ require 'pry'
 class Scraper
 BASE_URL = 'https://www.espn.com/'
 
-attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :story_body, :sport
+attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :story_body, :sport, :story_url, :article_title
 # attr_reader  :article_title
 @@headline_array = []
 @@page_id_array = []
@@ -23,7 +23,7 @@ attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :s
         @parsed_page = Nokogiri::HTML(@unparsed_url)
 
             
-            page_id_list = []
+           
             counter = 0
             while counter < 3
                 
@@ -45,12 +45,12 @@ attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :s
     
         def get_article(number)
             
-            story_url = @url + "/story/_/id/" + @@page_id_array[number]
+            @story_url = @url + "/story/_/id/" + @@page_id_array[number]
             unparsed_story_url = HTTParty.get(story_url)
             @parsed_story_url = Nokogiri::HTML(unparsed_story_url)
             # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
             # ^^ This retrieves the title of the article
-            article_title = @parsed_story_url.css('header.article-header h1').text
+            @article_title = @parsed_story_url.css('header.article-header h1').text
             counter = 0
             while counter < 1 
                 

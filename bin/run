@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../lib/my_test_project/scraper'
+require_relative '../lib/my_test_project/articles'
 
 
-Scraper.new('nfl').get_article(1)
+# Scraper.new('nfl').get_article(1)
+Articles.new('nfl', 0).article_body 

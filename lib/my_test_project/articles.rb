@@ -9,26 +9,39 @@ require 'open-uri'
 
 class Articles
 
-    attr_accessor :sport, :number
+    attr_accessor :sport, :number, :article_title, :article_body
 
 
-    HEADLINES = Scraper.get_page_headlines
+    @@all = []
     
     def initialize(sport, number)
-        @sport = sport
+        @sport = "#{sport}"
         @number = number
-
+        @@all << self
     end
 
-    def self.story
-        Scraper.get_article(@number)
+    def selt.titles
+        # An array consisting of the titles of the articles tied to the page id array integers. 
     
     end
-    
-    
 
-        # counter = 0
-        # while counter < 1 
+    
+        def self.all
+            @@all
+        end
+    
+        def self.reset
+            @@all.clear
+        end
+
+        def article_body
+            puts Scraper.new(@sport).get_article(@number)      
+        end
+
+end
+
+    # counter = 0
+    # while counter < 1 
             
         #     # parsed_story_url.css('div.article-body p').text.split('.').uniq 
         #     parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
@@ -38,7 +51,6 @@ class Articles
     
     
 
-end
 
 # # get text from articles
 # @article_title =  parsed_story_url.css('header.article-header h1').text
