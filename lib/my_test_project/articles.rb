@@ -9,59 +9,53 @@ require 'open-uri'
 
 class Articles
 
-    attr_accessor :sport, :number, :article_title, :article_body
+    attr_accessor :sport, :number, :article_title, :article_body, :titles
 
-
+    @@titles_array = []
     @@all = []
     
     def initialize(sport, number)
         @sport = "#{sport}"
-        @number = number
+        @number = number - 1
         @@all << self
+        @titles 
+        @article_body
+        @@titles_array << @titles
+        # binding.pry
     end
-
-    def selt.titles
-        # An array consisting of the titles of the articles tied to the page id array integers. 
-    
-    end
-
     
         def self.all
-            @@all
+           @@all
         end
     
         def self.reset
             @@all.clear
         end
+        
+        def self.all_titles
+            @@titles_array
+        end
+    
+        def titles
+            @titles = Scraper.new(@sport).get_article(@number)
 
-        def article_body
-            puts Scraper.new(@sport).get_article(@number)      
+            @titles
         end
 
+        
+        
+        
+        
+        
+        def article_body
+            @article_body = Scraper.new(@sport).story_body(@number)
+            puts @article_body
+        end
+        
 end
 
-    # counter = 0
-    # while counter < 1 
-            
-        #     # parsed_story_url.css('div.article-body p').text.split('.').uniq 
-        #     parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-        #     # ^^ This  code takes the text and formats it closer to readable format.
-        #     counter += 1
-     
+
     
     
 
 
-# # get text from articles
-# @article_title =  parsed_story_url.css('header.article-header h1').text
-# # ^^ This retrieves the title of the article
-# counter = 1
-# while counter <1 
-
-# parsed_story_url.css('div.article-body p').text.split('.').uniq 
-# counter += 1
-# # parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-# # ^^ This commented code takes the text and formats it closer to readable format.
-# end
-# # ^^Retrieves the body of the article
-#     # binding.pry
