@@ -20,23 +20,23 @@ class Articles
 
     end
 
+    def self.story
+        Scraper.get_article(@number)
+    
+    end
+    
+    
 
-        
-
-        counter = 0
-        while counter < 1 
+        # counter = 0
+        # while counter < 1 
             
-            # parsed_story_url.css('div.article-body p').text.split('.').uniq 
-            parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-            # ^^ This  code takes the text and formats it closer to readable format.
-            counter += 1
-        end
-    end
+        #     # parsed_story_url.css('div.article-body p').text.split('.').uniq 
+        #     parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
+        #     # ^^ This  code takes the text and formats it closer to readable format.
+        #     counter += 1
+     
     
-    def titles
-
     
-    end
 
 end
 
