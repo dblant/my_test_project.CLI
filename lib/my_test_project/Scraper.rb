@@ -61,7 +61,9 @@ attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :s
                 # binding.pry
             end
             @@headline_array << article_title
-            puts @@headline_array.uniq
+            
+            puts "#{@@headline_array.uniq}"
+            puts ""
             puts @story_body 
             # binding.pry
         end
