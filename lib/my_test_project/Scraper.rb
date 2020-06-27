@@ -16,7 +16,7 @@ attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :s
 @@page_id_array = []
 
 
-    def self.new(sport)
+    def initialize(sport)
         @sport = sport
         @url = BASE_URL + @sport
         @unparsed_url = HTTParty.get(@url)
@@ -58,12 +58,14 @@ attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :s
                 @story_body = parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
                 # ^^ This  code takes the text and formats it closer to readable format.
                 counter += 1
-                binding.pry
+                # binding.pry
             end
             @@headline_array << article_title
-            puts headline_list.uniq
+            puts @@headline_array.uniq
             puts @story_body 
+            # binding.pry
         end
+    
         
 
 end

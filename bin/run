@@ -2,4 +2,4 @@
 require_relative '../lib/my_test_project/scraper'
 
 
-Scraper.new('nfl').get_article(0)
+Scraper.new('nfl').get_article(1)
