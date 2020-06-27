@@ -10,17 +10,16 @@ require 'open-uri'
 class Articles
 
     attr_accessor :sport, :number, :article_title, :article_body, :titles
-
+    
     @@titles_array = []
     @@all = []
     
     def initialize(sport, number)
         @sport = "#{sport}"
-        @number = number - 1
+        @number = number
         @@all << self
-        @titles 
         @article_body
-        @@titles_array << @titles
+        @@titles_array 
         # binding.pry
     end
     
@@ -36,12 +35,18 @@ class Articles
             @@titles_array
         end
     
-        def titles
-            @titles = Scraper.new(@sport).get_article(@number)
+        def title1
+            @title1 = Scraper.new(@sport).get_article(@number-1)
 
-            @titles
+           @@titles_array << @title1
         end
 
+        def title2
+            @title2 = Scraper.new(@sport).get_article(@number)
+
+           @@titles_array << @title2
+        
+        end
         
         
         

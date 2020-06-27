@@ -31,6 +31,7 @@ def initialize(sport)
                 # ^^ This gets the id for the page for the article.  We can use this to get the text from the h1 so that we can use the text for our title.
                 @@page_id_array << @page_id
                 counter += 1
+                # binding.pry
             end
         
         end
@@ -38,7 +39,7 @@ def initialize(sport)
             
     
             def self.page_id_array
-                @@page_id_array
+                @@page_id_array.uniq
             end
 
             
