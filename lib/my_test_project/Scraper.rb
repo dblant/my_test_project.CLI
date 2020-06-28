@@ -10,9 +10,10 @@ require 'pry'
 class Scraper
 BASE_URL = 'https://www.espn.com/'
 
-attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :story_body, :sport, :story_url, :article_title, :headline_array, :unparsed_story_url
+attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :story_body, :sport, :story_url, :article_title, :headline_array, :unparsed_story_url, :page_id_array
 # attr_reader  :article_title
-@@page_id_array = []
+
+
 
 
 
@@ -21,7 +22,7 @@ def initialize(sport)
     @url = BASE_URL + @sport
     @unparsed_url = HTTParty.get(@url)
     @parsed_page = Nokogiri::HTML(@unparsed_url)
-        
+    @page_id_array = []    
         counter = 0
         while counter < 3
             
@@ -29,7 +30,7 @@ def initialize(sport)
             #    
                 @page_id = headlines.css('li')[0].attributes['data-story-id'].value
                 # ^^ This gets the id for the page for the article.  We can use this to get the text from the h1 so that we can use the text for our title.
-                @@page_id_array << @page_id
+                @page_id_array << @page_id
                 counter += 1
                 # binding.pry
             end
@@ -38,9 +39,7 @@ def initialize(sport)
     end
             
     
-            def self.page_id_array
-                @@page_id_array.uniq
-            end
+            
 
             
             
@@ -50,7 +49,7 @@ def initialize(sport)
     
         def get_article(number)
             @headline_array = []
-                @story_url = @url + "/story/_/id/" + @@page_id_array[("#{number}").to_i]
+                @story_url = @url + "/story/_/id/" + @page_id_array[("#{number}").to_i]
                 @unparsed_story_url = HTTParty.get(@story_url)
                 @parsed_story_url = Nokogiri::HTML(@unparsed_story_url)
                 # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create
@@ -62,7 +61,7 @@ def initialize(sport)
         end
         
             def story_body(number)
-                @story_url = @url + "/story/_/id/" + @@page_id_array[("#{number}").to_i]
+                @story_url = @url + "/story/_/id/" + @page_id_array[("#{number}").to_i]
                 @unparsed_story_url = HTTParty.get(story_url)
                 @parsed_story_url = Nokogiri::HTML(@unparsed_story_url)
                 # ^^ This gets us to the story page where we can take the title text and assign it to the link we will create

@@ -33,6 +33,7 @@ class Articles
     
         def self.reset
             @@all.clear
+            @@titles_array.clear
         end
         
         def titles_array

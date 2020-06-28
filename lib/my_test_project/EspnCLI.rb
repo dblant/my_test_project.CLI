@@ -3,10 +3,11 @@
 
 class EspnCLI
 
-    attr_accessor :article
+    
 
     def initialize
         menu
+        
     
     end
 
@@ -14,7 +15,7 @@ class EspnCLI
         
         input = ""
 
-        puts '
+        puts "
         ██████╗ ███████╗ █████╗ ██████╗     
         ██╔══██╗██╔════╝██╔══██╗██╔══██╗    
         ██████╔╝█████╗  ███████║██║  ██║    
@@ -35,7 +36,7 @@ class EspnCLI
         ██╔══╝  ╚════██║██╔═══╝ ██║╚██╗██║  
         ███████╗███████║██║     ██║ ╚████║  
         ╚══════╝╚══════╝╚═╝     ╚═╝  ╚═══╝  
-                                            '
+                                            "
                                             
                                             
                                             
@@ -273,7 +274,9 @@ class EspnCLI
         input = gets.strip.downcase
         case input
         when 'y'
+            Articles.reset
             menu
+
         when 'n'
             puts ""
             puts "GOODBYE!"
@@ -285,6 +288,7 @@ class EspnCLI
             puts ""
             puts "INVALID RESPONSE. Please enter 'Y' or 'N'."
             to_menu
+
         end
     
     end
