@@ -4,4 +4,4 @@ require_relative '../lib/my_test_project/articles'
 
 
 # Scraper.new('nfl')
-Articles.new('nfl', 1).title2
+Articles.new('nfl', 1).article_body2
