@@ -244,6 +244,8 @@ class EspnCLI
         when 'y'
             menu
         when 'n'
+            puts ""
+            puts "GOODBYE!"
             exit
         when 'exit'
             exit
