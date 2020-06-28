@@ -1,4 +1,29 @@
+require 'pry'
 
+
+class EspnCLI
+
+    attr_accessor :article
+
+    def initialize
+        
+    
+    end
+
+    def menu(input)
+        puts ""
+        puts "Welcome to the Sports Article Reader!"
+        sleep(1.5)
+        puts "Please select a sport:"
+        puts 'NFL', 'NBA', 'NHL', 'MLB', 'GOLF', 'SOCCER'
+
+        input = gets.strip.downcase
+
+        
+
+    end
+
+end
 
 
 # Intitialize with a menu of sport options
