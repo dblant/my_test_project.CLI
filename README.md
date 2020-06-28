@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Enter 'bin/run' into the console to start the program.  You will then be prompted to select the sport that you would like to receive article options from, or enter 'exit' to exit the program.  In the following menu, you will be shown two article choices to choose from.  Select either 1 or 2.  After you have made your choice, the text from the article will appear.  Once you have read the article, you will have the choice of either reading another article or exiting the program.
+
 
 ## Development
 

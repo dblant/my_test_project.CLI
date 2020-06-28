@@ -3,7 +3,6 @@ require_relative '../lib/my_test_project/scraper'
 require_relative '../lib/my_test_project/articles'
 require_relative '../lib/my_test_project/EspnCLI'
 
-# Scraper.new('nfl')
-# Articles.new("nfl", 1)
+
 EspnCLI.new
 
