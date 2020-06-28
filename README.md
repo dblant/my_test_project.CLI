@@ -1,8 +1,6 @@
 # MyTestProject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/my_test_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Hello!  The ESPN CLI is a simple program that allows its users to easily make a selection based on the sport of their choice, and then receive a couple of article options that may be of interest.  
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Enter 'bin/run' into the console to start the program.  You will then be prompted to select the sport that you would like to receive article options from, or enter 'exit' to exit the program.  In the following menu, you will be shown two article choices to choose from.  Select either 1 or 2.  After you have made your choice, the text from the article will appear.  Once you have read the article, you will have the choice of either reading another article or exiting the program.
+Enter 'bin/run' into the console to start the program.  You will then be prompted to select the sport that you would like to receive article options from, or enter 'exit' to exit the program.  In the following menu, you will be shown two article choices to choose from.  Select either 1 or 2.  After you have made your choice, the text from the article will appear.  Once you have read the article, you will have the choice of either reading another article or exiting the program.
 
 
 ## Development
