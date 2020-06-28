@@ -17,11 +17,12 @@ class Articles
     def initialize(sport, number)
         @sport = "#{sport}"
         @number = number
-        @@all << self
         @article_body1
         @article_body2
         @title1
         @title2
+        @@all << self
+        
         
         # binding.pry
     end
@@ -53,14 +54,14 @@ class Articles
         
         
         def article_body1
-            @article_body = Scraper.new(@sport).story_body(@number-1)
-            puts @article_body
+            @article_body1 = Scraper.new(@sport).story_body(@number-1)
+            @article_body1
         end
         
         
         def article_body2
-            @article_body = Scraper.new(@sport).story_body(@number)
-            puts @article_body
+            @article_body2 = Scraper.new(@sport).story_body(@number)
+            @article_body2
         end
         
 end
