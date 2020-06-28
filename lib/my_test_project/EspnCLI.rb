@@ -20,6 +20,9 @@ class EspnCLI
         puts "Please select a sport:"
         puts ""
         puts 'NFL',"", 'NBA', "", 'NHL', "", 'MLB', "", 'GOLF', "", 'SOCCER'
+        puts ""
+        puts ""
+        puts "Enter 'Exit' to exit"
 
         input = gets.strip.downcase
         
@@ -35,7 +38,17 @@ class EspnCLI
         when 'golf'
             golf_headlines
         when 'soccer'
-            soccer_headlines        
+            soccer_headlines   
+        when 'exit'
+            exit     
+        else
+            puts ""
+            puts "That selection was juuuust a bit outside."
+            puts ""
+            puts "Let's try that play again."
+            puts ""
+            sleep(2)
+            menu
         end
 
     end
@@ -61,7 +74,15 @@ class EspnCLI
           puts ""
           puts  Articles.new("nfl", 1).article_body2
           puts ""
+        when 'exit'
+            exit
+        else
+           puts "Invalid Selection"
+            nfl_headlines
         end
+        puts ""
+        puts ""
+        to_menu
 
     end
     
@@ -85,30 +106,155 @@ class EspnCLI
           puts ""
           puts  Articles.new("nba", 1).article_body2
           puts ""
+        else
+            puts "Invalid Selection"
+            nba_headlines
         end
+        puts ""
+        puts ""
+        to_menu
     end
 
 
     def nhl_headlines
-        puts Articles.new("nhl", 1).title1
-        puts Articles.new("nhl", 1).title2
+        puts ""
+        puts "Which article would you like to read? Please enter 1 or 2."
+        puts ""
+        puts "1:"
+        puts  Articles.new("nhl", 1).title1
+        puts "2:"
+        puts  Articles.new("nhl", 1).title2
+
+        input = gets.strip.to_i
+
+        case input
+        when 1
+          puts ""
+          puts  Articles.new("nhl", 1).article_body1
+          puts ""
+        when 2 
+          puts ""
+          puts  Articles.new("nhl", 1).article_body2
+          puts ""
+        else
+            puts "Invalid Selection"
+            nhl_headlines
+        end
+        puts ""
+        puts ""
+        to_menu
     end
 
     def mlb_headlines
-        puts Articles.new("mlb", 1).title1
-        puts Articles.new("mlb", 1).title2
+        puts ""
+        puts "Which article would you like to read? Please enter 1 or 2."
+        puts ""
+        puts "1:"
+        puts  Articles.new("mlb", 1).title1
+        puts "2:"
+        puts  Articles.new("mlb", 1).title2
+
+        input = gets.strip.to_i
+
+        case input
+        when 1
+          puts ""
+          puts  Articles.new("mlb", 1).article_body1
+          puts ""
+        when 2 
+          puts ""
+          puts  Articles.new("mlb", 1).article_body2
+          puts ""
+        else
+           puts "Invalid Selection"
+            mlb_headlines
+        end
+        puts ""
+        puts ""
+        to_menu
     end
 
     def golf_headlines
-        puts Articles.new("golf", 1).title1
-        puts Articles.new("golf", 1).title2
+        puts ""
+        puts "Which article would you like to read? Please enter 1 or 2."
+        puts ""
+        puts "1:"
+        puts  Articles.new("golf", 1).title1
+        puts "2:"
+        puts  Articles.new("golf", 1).title2
+
+        input = gets.strip.to_i
+
+        case input
+        when 1
+          puts ""
+          puts  Articles.new("golf", 1).article_body1
+          puts ""
+        when 2 
+          puts ""
+          puts  Articles.new("golf", 1).article_body2
+          puts ""
+        else
+           puts "Invalid Selection"
+            golf_headlines
+        end
+        puts ""
+        puts ""
+        to_menu
     end
 
     def soccer_headlines
-        puts Articles.new("soccer", 1).title1
-        puts Articles.new("soccer", 1).title2
+        puts ""
+        puts "Which article would you like to read? Please enter 1 or 2."
+        puts ""
+        puts "1:"
+        puts  Articles.new("soccer", 1).title1
+        puts "2:"
+        puts  Articles.new("soccer", 1).title2
+
+        input = gets.strip.to_i
+
+        case input
+        when 1
+          puts ""
+          puts  Articles.new("soccer", 1).article_body1
+          puts ""
+        when 2 
+          puts ""
+          puts  Articles.new("soccer", 1).article_body2
+          puts ""
+        else
+           puts "Invalid Selection"
+            soccer_headlines
+        end
+        puts ""
+        puts ""
+        to_menu
     end
 
+    def to_menu
+        puts ""
+        puts ""
+        puts "Would you like to read another article?  (Y/N)"
+        puts ""
+        puts ""
+        puts "Enter 'Exit' to exit."
+        input = gets.strip.downcase
+        case input
+        when 'y'
+            menu
+        when 'n'
+            exit
+        when 'exit'
+            exit
+        else
+            puts ""
+            puts ""
+            puts "INVALID RESPONSE. Please enter 'Y' or 'N'."
+            to_menu
+        end
+    
+    end
 
 
 end
