@@ -11,7 +11,7 @@ class Scraper
 BASE_URL = 'https://www.espn.com/'
 
 attr_accessor :url, :unparsed_url, :parsed_page, :page_id, :parsed_story_url, :story_body, :sport, :story_url, :article_title, :headline_array, :unparsed_story_url, :page_id_array
-# attr_reader  :article_title
+
 
 
 
@@ -32,7 +32,7 @@ def initialize(sport)
                 # ^^ This gets the id for the page for the article.  We can use this to get the text from the h1 so that we can use the text for our title.
                 @page_id_array << @page_id
                 counter += 1
-                # binding.pry
+                
             end
         
         end
@@ -69,7 +69,7 @@ def initialize(sport)
                 counter = 0
                 while counter < 1 
                     @story_body = @parsed_story_url.css('div.article-body p').text.gsub('.', '. ').gsub('?', '? ')
-                    # ^^ This  code takes the text and formats it closer to readable format.
+                    # ^^ This code takes the text and formats it closer to readable format.
                     counter += 1
                 end
                 @story_body
