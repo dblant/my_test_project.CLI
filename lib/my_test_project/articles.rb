@@ -9,7 +9,7 @@ require 'open-uri'
 
 class Articles
 
-    attr_accessor :sport, :number, :article_title, :article_body, :titles, :titles_array
+    attr_accessor :sport, :number, :article_title, :article_body1, :article_body2, :title1, :title2, :titles_array
     
     @@titles_array = []
     @@all = []
